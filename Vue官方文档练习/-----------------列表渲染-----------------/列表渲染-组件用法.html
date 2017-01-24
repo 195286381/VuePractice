@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="xzzzzz">
+    <title>Document</title>
+    <style type="text/css">
+    </style>
+</head>
+<body>
+    <div id="app-1">
+        <div>---------父子组件的关系: props down, events up---------</div>
+        <my-component v-for="item in items" :message="item" @templisten="say"></my-component >
+    </div>
+    <script type="text/javascript" src="../js/lib/vue.js" v-cloak></script>
+    <script type="text/javascript">
+        // 声明一个全局组件
+        Vue.component('my-component', {
+            template: '<div @click="tempFunc">{{message}}<div>',
+            props:['message'],
+            methods: {
+                tempFunc: function() {
+                    this.$emit('templisten');
+                }
+            }
+        });
+
+        var vm = new Vue({
+            el:'#app-1',
+            data: {
+                items: [1,2,3,4]
+            },
+            methods: {
+                say: function() {
+                    alert('hello');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

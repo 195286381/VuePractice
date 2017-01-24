@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="author" content="xzzzzz">
     <title>Document</title>
     <style type="text/css">
         [v-cloak] {
@@ -12,8 +13,8 @@
 <body>
     <div id="app-1">
         <template v-for="(value, index) in messageAry">
-            <div>{{value.name}}</div>
-            <div>{{value.age}}</div>
+            <div>{{ value.name }} : {{ value.age}}</div>
+            <div>This is a template practice.</div>
         </template>
     </div>
     <script type="text/javascript" src="../js/lib/vue.js" v-cloak></script>
@@ -23,19 +24,19 @@
             data: {
                 messageAry: [
                     {
-                        name: 'xzzzz',
+                        name: 'XzzzzA',
                         age: '26'
                     },
                     {
-                        name: 'xzzzzA',
+                        name: 'XzzzzB',
                         age: '26'
                     },
                     {
-                        name: 'xzzzzb',
+                        name: 'XzzzzC',
                         age: '26'
                     },
                     {
-                        name: 'xzzzzc',
+                        name: 'XzzzzD',
                         age: '26'
                     }
                 ]
