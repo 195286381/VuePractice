@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app-1">
+        <div>Vue测试 - 列表渲染</div>
+    </div>
+    <div id="app-2">
+        <ul>
+            <li v-for="(value, index) in messageArray" @click="remove(index)">{{ value.name }} : {{value.age}} {{ index }}</li>
+        </ul>
+    </div>
+    <script type="text/javascript" src="js/lib/vue.js" v-cloak></script>
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: '#app-1',
+            data: {
+                message: '522',
+            },
+            computed: {
+                messageCp: function() {
+                    return --this.message + 1;
+                }
+            },
+            methods: {
+                say: function() {
+                    alert('hello');
+                }
+            },
+        });
+
+        var vm = new Vue({
+            el: '#app-2',
+            data: {
+                messageArray: [
+                    {
+                        name: 'xzzzz',
+                        age: '26'
+                    },
+                    {
+                        name: 'xzzzzA',
+                        age: '26'
+                    },
+                    {
+                        name: 'xzzzzb',
+                        age: '26'
+                    },
+                    {
+                        name: 'xzzzzc',
+                        age: '26'
+                    }
+                ]
+            },
+            methods: {
+                remove: function(index) {
+                    console.log('移除元素成功');
+                    this.messageArray.splice(index, 1);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+.clear:after {
+	display: block;
+	visibility: hidden;
+	clear: both;
+
+	height: 0;
+
+ 	content:'.';
+}
+
+
+a:link, a:visited {
+	display: block;
+	width: 100px;
+	height: 50px;
+	background: url(1.png) no-repeat -150px -100px;
+}
+
+a:hover {
+	background-position: -200px 300px;
+}

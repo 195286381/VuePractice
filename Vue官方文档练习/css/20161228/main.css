@@ -1,0 +1,43 @@
+span {
+/*	width: 100px;
+	height: 100px;*/
+	font-size: 16px;
+	/*line-height: 200px;*/
+	background-color: #f11;
+}
+
+.re {
+	position: relative;
+	width: 300px;
+	height: 300px;
+	top: 200px;
+	left: 200px;
+	background-color: yellow;
+
+}
+
+.fl {
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	bottom:0px;
+	right: 0px;
+	background-color: #f11;
+}
+
+.fl:first-child {
+	z-index: 100;
+}
+
+.fl {
+	z-index: 10;
+}
+
+div.ad {
+	position: fixed;
+	width: 100px;
+	height: 100px;
+	background-color: #f11;
+	right: 5%
+	bottom: 5%;
+}
