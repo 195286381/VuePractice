@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vue核心基本功能</title>
+    <style type="text/css">
+        body {
+            text-align: center;
+            font: 700 18px/1.5 "Microsoft Yahei", Arial, sans-serif;
+        }
+
+        h1 {
+            font-size: 150%;
+            margin-bottom: 100px;
+        }
+
+        h2 {
+            font-size: 130%;
+        }
+
+        div.center {
+            margin: 0 auto 100px;
+            padding: 20px;
+            width: 600px;
+            min-height: 200px;
+            border: 5px solid gray;
+
+        }
+
+        ul {
+            list-style-type: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>vue核心基本功能</h1>
+    <h2> 绑定数据到dom文本 和 dom属性(v-bind) </h2>
+    <div class="center" id="app-1">{{ message }}
+        <div :title="title">绑定数据到title</div>
+    </div>
+    <h2>绑定数据到dom结构 v-if</h2>
+    <div class="center" id="app-2">
+        <div v-if="show"  @click="toggle">点击改变v-if的值</div>
+    </div>
+    <h2>绑定数据到dom结构 v-for</h2>
+    <div class="center" id="app-3">
+        <ul>
+            <li v-for='item in items'>{{ item.name }}</li>
+        </ul>
+    </div>
+    <h2>绑定用户交互 v-on</h2>
+    <div class="center" id="app-4">
+        <div @click="say">click me</div>
+    </div>
+    <h2>组件化应用构建</h2>
+    <div class="center" id="app-5">
+        <ul>
+            <vue-li v-for="item in items" :item="item"></vue-li>
+        </ul>
+    </div>
+        
+
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+
+    /* 绑定数据到dom文本 和 dom属性(v-bind) */
+        var vm1 = new Vue({
+            el: '#app-1',
+            data: {
+                message: 'hello wolrd',
+                title: 'title绑定的数据是我'
+            }
+        })
+
+    /* 绑定数据到dom结构 v-if */
+        var vm2 = new Vue({
+            el: '#app-2',
+            data: {
+                show: true
+            },
+            methods: {
+                toggle: function() {
+                    this.show = false;
+                }
+            }
+        })
+
+    /* 绑定数据到dom结构 v-for */
+         var vm3 = new Vue({
+            el: '#app-3',
+            data: {
+                items: [
+                    {name: 12},
+                    {name: 13},
+                    {name: 14},
+                    {name: 15}
+                ]
+            }
+        })
+
+
+    /* 绑定用户交互 v-on */
+         var vm4 = new Vue({
+            el: '#app-4',
+            methods: {
+                say() {
+                    alert('hello world')
+                }
+            }
+        })
+
+      /* 组件化应用构建 */
+        Vue.component('vue-li', {
+            props:['item'],
+            template: '<li>{{ item.name }}</li>'
+        });
+
+        var vm5 = new Vue({
+            el: '#app-5',
+            data: {
+                items: [
+                    {name: 12},
+                    {name: 13},
+                    {name: 14},
+                    {name: 15}
+                ]
+            }
+        });
+    </script>
+</body>
+</html>
